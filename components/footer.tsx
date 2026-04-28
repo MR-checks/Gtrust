@@ -13,7 +13,7 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-background py-10">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 px-4 sm:px-6 lg:flex-row lg:px-8 lg:pr-24">
         <div>
           <Image 
             src="/logo.png" 
@@ -28,7 +28,7 @@ export function Footer() {
             <p><a href={`mailto:${t.emailAddress}`} className="transition hover:text-foreground">{t.emailAddress}</a></p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground sm:grid-cols-3 lg:col-span-2">
+        <div className="flex flex-col items-start gap-3 text-sm text-muted-foreground lg:mt-4 lg:items-end">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="transition hover:text-foreground">
               {t[item.key]}

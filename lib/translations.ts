@@ -63,7 +63,7 @@ export const dictionary = {
     faqHeading: 'FAQ',
     faqTitle: 'Common questions',
     phone: '+90 (312) 395 66 88',
-    emailAddress: 'info@gtrust.com'
+    emailAddress: 'info@gtrust.com.tr'
   },
   tr: {
     home: 'Ana Sayfa',
@@ -127,6 +127,6 @@ export const dictionary = {
     faqHeading: 'SSS',
     faqTitle: 'Sıkça sorulan sorular',
     phone: '+90 (312) 395 66 88',
-    emailAddress: 'info@gtrust.com'
+    emailAddress: 'info@gtrust.com.tr'
   }
 } as const;
