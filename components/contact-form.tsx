@@ -35,7 +35,7 @@ export function ContactForm() {
     }
 
     try {
-      const response = await fetch('https://formspree.io/f/gtrust2026@gmail.com', {
+      const response = await fetch('https://formspree.io/f/mnjlkkav', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -52,7 +52,7 @@ export function ContactForm() {
         if (result.errors) {
           setStatus(result.errors.map((error: any) => error.message).join(', '));
         } else {
-          setStatus('Submission failed. Please ensure you have confirmed the activation email from Formspree at gtrust2026@gmail.com.');
+          setStatus('Submission failed. Please try again or email us directly.');
         }
       }
     } catch (error) {
