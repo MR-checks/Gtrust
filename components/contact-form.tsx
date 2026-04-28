@@ -20,6 +20,20 @@ export function ContactForm() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
+    // Basic client-side validation
+    if (!data.name || !data.email || !data.message) {
+      setStatus('Please fill in all required fields.');
+      setLoading(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email as string)) {
+      setStatus('Please enter a valid email address.');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch('https://formspree.io/f/gtrust2026@gmail.com', {
         method: 'POST',
@@ -34,7 +48,12 @@ export function ContactForm() {
         setStatus(t.statusSuccess);
         (e.target as HTMLFormElement).reset();
       } else {
-        setStatus('Something went wrong. Please try again or email us directly.');
+        const result = await response.json();
+        if (result.errors) {
+          setStatus(result.errors.map((error: any) => error.message).join(', '));
+        } else {
+          setStatus('Submission failed. Please ensure you have confirmed the activation email from Formspree at gtrust2026@gmail.com.');
+        }
       }
     } catch (error) {
       setStatus('Network error. Please check your connection.');
@@ -46,7 +65,7 @@ export function ContactForm() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
       <GlassCard>
-        <form onSubmit={onSubmit} className="space-y-5" noValidate>
+        <form onSubmit={onSubmit} className="space-y-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label={t.name} name="name" type="text" required />
             <Field label={t.email} name="email" type="email" required />
