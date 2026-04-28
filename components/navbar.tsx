@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { navItems } from '@/lib/site';
 import { dictionary } from '@/lib/translations';
 import { useLanguage } from '@/components/providers';
@@ -16,13 +16,33 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const { locale } = useLanguage();
   const t = dictionary[locale];
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    function handleEvent(event: MouseEvent | KeyboardEvent) {
+      if (open && navRef.current) {
+        if (event instanceof MouseEvent && !navRef.current.contains(event.target as Node)) {
+          setOpen(false);
+        } else if (event instanceof KeyboardEvent && event.key === 'Escape') {
+          setOpen(false);
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleEvent);
+    document.addEventListener('keydown', handleEvent);
+    return () => {
+      document.removeEventListener('mousedown', handleEvent);
+      document.removeEventListener('keydown', handleEvent);
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-xl">
+    <header ref={navRef} className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex h-12 w-48 shrink-0 items-center overflow-hidden">
           <Image 

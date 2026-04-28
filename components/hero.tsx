@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-background">
       <div className="absolute inset-0 opacity-[0.15] dark:opacity-30 [background:radial-gradient(circle_at_20%_20%,hsl(var(--primary)/0.14),transparent_22%),radial-gradient(circle_at_80%_0%,hsl(var(--primary)/0.18),transparent_20%)]" />
       <div className="relative mx-auto grid min-h-[calc(100vh-84px)] max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-        <MotionDiv className="max-w-2xl">
+        <MotionDiv className="flex max-w-2xl flex-col items-center text-center lg:items-start lg:text-left">
           <p className="mb-5 inline-flex rounded-full border bg-muted px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-md">
             {t.heroEyebrow}
           </p>
@@ -22,12 +22,12 @@ export function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">{t.heroText}</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
             <PrimaryButton href="/contact">{t.bookCall}</PrimaryButton>
             <SecondaryButton href="/services">{t.viewServices}</SecondaryButton>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3 text-sm text-muted-foreground">
+          <div className="mt-10 flex flex-wrap justify-center gap-3 text-sm text-muted-foreground lg:justify-start">
             {[t.trustBadge1, t.trustBadge2, t.trustBadge3].map((item) => (
               <span key={item} className="rounded-full border bg-muted px-4 py-2 backdrop-blur-md">
                 {item}
