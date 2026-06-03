@@ -26,6 +26,7 @@ export function Footer() {
           <div className="mt-4 space-y-1 text-sm text-muted-foreground">
             <p><a href={`tel:${t.phone.replace(/\D/g, '')}`} className="transition hover:text-foreground">{t.phone}</a></p>
             <p><a href={`mailto:${t.emailAddress}`} className="transition hover:text-foreground">{t.emailAddress}</a></p>
+            <p className="max-w-xs">{t.address}</p>
           </div>
         </div>
         <div className="flex flex-col items-start gap-3 text-sm text-muted-foreground lg:mt-4 lg:items-end">

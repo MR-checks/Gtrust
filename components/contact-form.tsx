@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Loader2, Mail, PhoneCall } from 'lucide-react';
+import { Loader2, Mail, PhoneCall, MapPin } from 'lucide-react';
 import { PrimaryButton, GlassCard } from '@/components/ui';
 import { dictionary } from '@/lib/translations';
 import { useLanguage } from '@/components/providers';
@@ -65,7 +65,7 @@ export function ContactForm() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
       <GlassCard>
-        <form onSubmit={onSubmit} className="space-y-5">
+        <form id="inquiry-form" onSubmit={onSubmit} className="space-y-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label={t.name} name="name" type="text" required />
             <Field label={t.email} name="email" type="email" required />
@@ -100,7 +100,7 @@ export function ContactForm() {
           <h3 className="mt-3 text-2xl font-semibold text-foreground">{t.directSpeak}</h3>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">{t.directSpeakText}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <PrimaryButton href="/contact">{t.bookCall}</PrimaryButton>
+            <PrimaryButton href="#inquiry-form">{t.bookCall}</PrimaryButton>
           </div>
         </GlassCard>
         <GlassCard>
@@ -111,6 +111,10 @@ export function ContactForm() {
           <div className="mt-4 flex items-center gap-3 text-foreground">
             <Mail size={18} className="text-primary" /> 
             <a href={`mailto:${t.emailAddress}`} className="transition hover:text-primary">{t.emailAddress}</a>
+          </div>
+          <div className="mt-4 flex items-start gap-3 text-foreground">
+            <MapPin size={18} className="mt-1 shrink-0 text-primary" /> 
+            <span className="transition hover:text-primary">{t.address}</span>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">{t.bestFor}</p>
         </GlassCard>
