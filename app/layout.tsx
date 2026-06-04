@@ -9,7 +9,7 @@ import { WhatsAppWidget } from '@/components/whatsapp-widget';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gtrust.com'),
+  metadataBase: new URL('https://www.gtrust.com.tr/'),
   title: {
     default: 'GTRUST | Trade Facilitation Between Turkey and Africa',
     template: '%s | GTRUST'
