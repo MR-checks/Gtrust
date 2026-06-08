@@ -62,7 +62,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-1 sm:gap-3 scale-[0.85] origin-right sm:scale-100">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-3 mr-3 sm:mr-0">
           <LanguageToggle />
           <ThemeToggle />
           <Link href="/contact" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:scale-[1.02] lg:block">
