@@ -42,7 +42,7 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header ref={navRef} className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-xl">
+    <header ref={navRef} className="sticky top-0 z-50 w-full overflow-x-hidden border-b bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex h-12 w-48 shrink-0 items-center overflow-hidden">
           <Image 
@@ -62,7 +62,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-1 sm:gap-3 mr-3 sm:mr-0">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-3 relative right-3 sm:right-0">
           <LanguageToggle />
           <ThemeToggle />
           <Link href="/contact" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:scale-[1.02] lg:block">
