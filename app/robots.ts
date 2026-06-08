@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://gtrust.com/sitemap.xml',
+    sitemap: 'https://gtrust.com.tr/sitemap.xml',
   };
 }
